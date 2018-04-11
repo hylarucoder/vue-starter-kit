@@ -56,10 +56,18 @@
   },
   "dllDependencies": {
     "echarts": "^4.0.4",
-    "vue": "^2.5.16"
+    "element-ui": "^2.3.3",
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.2.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "dependencies": {
     "echarts": "^4.0.4",
-    "vue": "^2.5.16"
+    "element-ui": "^2.3.3",
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.2.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   }
 }
