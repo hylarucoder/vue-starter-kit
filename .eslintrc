@@ -1,0 +1,16 @@
+{
+  "extends": ["plugin:vue/essential","standard"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "generator-star-spacing": "off",
+    "quotes": 0,
+    "semi": 0
+  }
+}

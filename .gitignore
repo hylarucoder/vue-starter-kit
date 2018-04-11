@@ -1,0 +1,22 @@
+*.log
+.DS_Store
+.vuerc
+/dist/
+design
+node_modules
+npm-debug.log*
+packages/test
+public/*
+yarn-debug.log*
+yarn-error.log*
+dll/*
+build/
+yarn.lock
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
