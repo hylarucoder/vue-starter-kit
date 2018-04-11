@@ -6,7 +6,6 @@ design
 node_modules
 npm-debug.log*
 packages/test
-public/*
 yarn-debug.log*
 yarn-error.log*
 dll/*
