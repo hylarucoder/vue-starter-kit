@@ -1,8 +1,8 @@
 <template>
 <el-container>
-  <el-aside width="200px">
+  <aside class="el-aside">
     <fed-sidebar :is-collapse="isCollapse"></fed-sidebar>
-  </el-aside>
+  </aside>
   <el-container>
     <fed-header @on-collapse-changed="handleCollapsedChanged">
     </fed-header>

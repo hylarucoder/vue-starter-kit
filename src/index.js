@@ -5,7 +5,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import routes from "./routes";
 import store from "./store";
 import App from "./App";
-import { FedCommons } from "./components/fed-commons";
+// import { FedCommons } from "./components/fed-commons";
 
 Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$msgbox = MessageBox;
@@ -16,7 +16,7 @@ Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
 Vue.use(Element, { size: "small" });
 Vue.use(VueRouter);
-FedCommons.install(Vue);
+// FedCommons.install(Vue);
 
 // Routing logic
 let router = new VueRouter({

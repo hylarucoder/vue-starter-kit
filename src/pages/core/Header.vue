@@ -1,5 +1,5 @@
 <template>
-    <el-header style="text-align: right; font-size: 12px">
+    <el-header style="text-align: right; font-size: 12px; padding: 0;">
         <el-menu mode="horizontal">
             <li role="menuitem" class="el-menu-item" style="border-bottom-color: transparent;">
         <el-radio-group v-model="isMenuCollapse" style="margin-bottom: 20px;">
