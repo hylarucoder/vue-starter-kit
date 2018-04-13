@@ -1,53 +1,57 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'vue start kit',
-      template: 'public/index.html',
+      title: "vue start kit",
+      template: "public/index.html"
     })
   ],
-  mode: 'production',
+  mode: "production",
   output: {
-    filename: 'main.[hash:8].js',
-    chunkFilename: '[name].[hash:8].chunk.js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '',
+    filename: "main.[hash:8].js",
+    chunkFilename: "[name].[hash:8].chunk.js",
+    path: path.resolve(__dirname, "build"),
+    publicPath: ""
   },
   module: {
     rules: [
       {
-        enforce: 'pre',
+        enforce: "pre",
         test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-        },
+          loader: "babel-loader"
+        }
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        use: ["file-loader"]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader'],
-      },
-    ],
+        use: ["file-loader"]
+      }
+    ]
   },
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue$: "vue/dist/vue.esm.js"
     },
-    extensions: ['*', '.js', '.vue', '.json'],
-  },
-}
+    extensions: ["*", ".js", ".vue", ".json"]
+  }
+};

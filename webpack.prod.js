@@ -6,9 +6,9 @@ const webpack = require('webpack')
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const OfflinePlugin = require('offline-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-module.exports = merge(common, {
+const options =  merge(common, {
   dependencies: ['vendor'],
   devtool: 'source-map',
   plugins: [
@@ -32,9 +32,14 @@ module.exports = merge(common, {
       includeSourcemap: true,
       hash: true,
     }),
-    // new OfflinePlugin(),
   ],
   output: {
     publicPath: '',
   },
 })
+
+if (process.env.npm_config_report) {
+  options["plugins"].push(new BundleAnalyzerPlugin())
+}
+
+module.exports = options
