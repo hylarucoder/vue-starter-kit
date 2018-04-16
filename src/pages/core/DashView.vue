@@ -32,10 +32,6 @@ import Header from "./Header";
 export default class DashView extends Vue {
   isCollapse = false;
   handleCollapsedChanged(value) {
-    console.log("-------->");
-    console.log(this);
-    console.log(value);
-    console.log("<--------");
     this.isCollapse = value;
   }
 }

@@ -1,26 +1,30 @@
 <template>
     <div>
-    <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+      MG的编程小屋
+    <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse"  class="el-menu-vertical-siderbar" >
         <template v-for="(route, index) in $router.options.routes[$router.options.routes.length - 2].children">
-        <el-submenu :index="route.name" :key="index">
-            <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">{{ route.name }}</span>
-            </template>
-            <el-menu-item-group >
-            <span slot="title">分组一</span>
-            {{ isCollapse }}
-            <el-menu-item
+          <div :index="route.name" :key="index"
+              v-if="$route.path.indexOf(route.path) === 0">
+            <el-submenu
                 :path="route.path + '/' + cRoute.path"
                 :index="cRoute.name"
                 v-for="(cRoute, cIndex) in route.children"
                 :route="cRoute.path"
                 :key="cIndex"
                 :disabled="cRoute.disabled">
-                {{cRoute.name}}
-            </el-menu-item>
-            </el-menu-item-group>
-        </el-submenu>
+                  <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span slot="title">
+                    {{cRoute.name}}
+                    </span>
+                  </template>
+                  <el-menu-item v-for="(subRoute) in cRoute.children" :index="subRoute.name" :key="subRoute.name">
+                    <router-link :to="{ name: subRoute.name}">
+                        {{subRoute.name}}
+                    </router-link>
+                  </el-menu-item>
+            </el-submenu>
+          </div>
         </template>
     </el-menu>
     </div>
@@ -40,8 +44,15 @@ export default class Header extends Vue {
   handleOpen(key, keyPath) {
     console.log(key, keyPath);
   }
+  mounted() {}
   handleClose(key, keyPath) {
     console.log(key, keyPath);
   }
 }
 </script>
+<style>
+.el-menu-vertical-siderbar:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+</style>

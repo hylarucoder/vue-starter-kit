@@ -2,32 +2,39 @@
     <el-header style="text-align: right; font-size: 12px; padding: 0;">
         <el-menu mode="horizontal">
             <li role="menuitem" class="el-menu-item" style="border-bottom-color: transparent;">
-        <el-radio-group v-model="isMenuCollapse" style="margin-bottom: 20px;">
-            <el-radio-button :label="false">展开</el-radio-button>
-            <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
+                <el-radio-group v-model="isMenuCollapse" style="margin-bottom: 20px;">
+                    <el-radio-button :label="false">展开</el-radio-button>
+                    <el-radio-button :label="true">收起</el-radio-button>
+                </el-radio-group>
             </li>
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
+
+        <template v-for="(route, index) in $router.options.routes[$router.options.routes.length - 2].children">
+        <el-submenu :index="route.name" :key="index">
+            <template slot="title">
+            <span slot="title">{{ route.name }}</span>
+            </template>
+            <el-menu-item-group >
+            <!-- <span slot="title">分组一</span> -->
+                <el-menu-item
+                    :path="route.path + '/' + cRoute.path"
+                    :index="cRoute.name"
+                    v-for="(cRoute, cIndex) in route.children"
+                    :route="cRoute.path"
+                    :key="cIndex"
+                    :disabled="cRoute.disabled">
+                    <router-link :to="{ name: cRoute.name}">
+                        {{cRoute.name}}
+                    </router-link>
+                </el-menu-item>
+            </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+        </template>
             <el-dropdown>
                 <i class="el-icon-setting" style="margin-right: 15px"></i>
                 <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>查看</el-dropdown-item>
+                <!-- <el-dropdown-item>查看</el-dropdown-item>
                 <el-dropdown-item>新增</el-dropdown-item>
-                <el-dropdown-item>删除</el-dropdown-item>
+                <el-dropdown-item>删除</el-dropdown-item> -->
                 </el-dropdown-menu>
             </el-dropdown>
             <span>王小虎</span>
@@ -50,6 +57,6 @@ import Component from "vue-class-component";
   components: {}
 })
 export default class Header extends Vue {
-  isMenuCollapse = true;
+  isMenuCollapse = false;
 }
 </script>
