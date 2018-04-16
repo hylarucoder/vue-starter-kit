@@ -1,11 +1,6 @@
 <template>
   <div>
-    <input v-model="msg">
-    <p>prop: {{propMessage}}</p>
-    <p>msg: {{msg}}</p>
-    <p>helloMsg: {{helloMsg}}</p>
-    <p>computed msg: {{computedMsg}}</p>
-    <button @click="greet">Greet</button>
+    <simple-chart :dataObj="{}"></simple-chart>
   </div>
 </template>
 
@@ -16,28 +11,10 @@ import Component from "vue-class-component";
 @Component({
   props: {
     propMessage: String
+  },
+  components: {
+    "simple-chart": () => import("./charts/SimpleChart.vue")
   }
 })
-export default class App extends Vue {
-  // initial data
-  msg = 123;
-
-  // use prop values for initial data
-  helloMsg = "Hello, " + this.propMessage;
-
-  // lifecycle hook
-  mounted() {
-    this.greet();
-  }
-
-  // computed
-  get computedMsg() {
-    return "computed " + this.msg;
-  }
-
-  // method
-  greet() {
-    alert("greeting: " + this.msg);
-  }
-}
+export default class App extends Vue {}
 </script>

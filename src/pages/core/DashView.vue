@@ -7,6 +7,7 @@
     <fed-header @on-collapse-changed="handleCollapsedChanged">
     </fed-header>
     <el-main>
+      <fed-breadcumbs></fed-breadcumbs>
       <router-view></router-view>
     </el-main>
     <el-footer>Footer</el-footer>

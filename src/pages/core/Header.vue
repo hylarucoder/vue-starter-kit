@@ -50,7 +50,6 @@ import Component from "vue-class-component";
   props: {},
   watch: {
     isMenuCollapse(value) {
-      console.log(value);
       this.$emit("on-collapse-changed", value);
     }
   },

@@ -68,6 +68,7 @@
   "dependencies": {
     "echarts": "^4.0.4",
     "element-ui": "^2.3.3",
+    "resize-detector": "^0.1.6",
     "vue": "^2.5.16",
     "vue-class-component": "^6.2.0",
     "vue-router": "^3.0.1",

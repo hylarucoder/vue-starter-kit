@@ -12,6 +12,10 @@
 <script>
 // Original Based On https://github.com/ecomfe/vue-echarts/blob/master/src/components/ECharts.vue
 import echarts from "echarts/lib/echarts";
+import "echarts/lib/chart/bar";
+import "echarts/lib/chart/line";
+import "echarts/lib/component/tooltip";
+
 import debounce from "lodash/debounce";
 import { addListener, removeListener } from "resize-detector";
 import Vue from "vue";

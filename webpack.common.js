@@ -1,6 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+
+console.log(resolve("src"));
+
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,9 +32,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        include: [
+          resolve("src"),
+          resolve("test"),
+          resolve("node_modules/vue-echarts"),
+          resolve("node_modules/resize-detector")
+        ],
+        loader: "babel-loader"
       },
       {
         test: /\.vue$/,
@@ -50,8 +60,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js"
+      vue$: "vue/dist/vue.esm.js",
+      "@": resolve("src")
     },
-    extensions: ["*", ".js", ".vue", ".json"]
+    extensions: [".js", ".vue", ".json"]
   }
 };
