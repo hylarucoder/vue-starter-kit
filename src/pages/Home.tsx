@@ -1,12 +1,9 @@
-import {defineComponent} from 'vue';
-import {Button} from 'vant';
-
+import { defineComponent } from "vue";
+import { Button } from "vant";
 
 export default defineComponent({
-    name: 'AApp',
-    setup() {
-        return () => (
-            <Button type="primary">btn</Button>
-        );
-    }
+  name: "AApp",
+  setup() {
+    return () => <Button type="primary">btn</Button>;
+  },
 });
