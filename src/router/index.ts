@@ -12,6 +12,11 @@ const router = createRouter({
       name: "home",
       component: () => import("@/pages/Home.tsx"),
     },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("@/pages/Profile.tsx"),
+    },
   ],
 });
 
