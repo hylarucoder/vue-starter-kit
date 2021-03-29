@@ -6,14 +6,12 @@ export default defineComponent({
     name: "App",
     setup() {
         return () => (
-            <div>
-                <Transition name="slide-fade">
-                    <KeepAlive>
-                        <RouterView/>
-                        <FooterNav/>
-                    </KeepAlive>
-                </Transition>
-            </div>
+            <>
+                <KeepAlive>
+                    <RouterView/>
+                </KeepAlive>
+                <FooterNav/>
+            </>
         )
     },
 });

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,7 +17,17 @@ const router = createRouter({
       name: "profile",
       component: () => import("@/pages/Profile.tsx"),
     },
+    {
+      path: "/403",
+      name: "403",
+      component: () => import("@/pages/403.tsx"),
+    },
+    {
+      path: "/404",
+      name: "404",
+      component: () => import("@/pages/404.tsx"),
+    },
   ],
-});
+})
 
-export default router;
+export default router
