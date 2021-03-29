@@ -3,7 +3,7 @@ import { Button } from "vant";
 
 export default defineComponent({
   name: "PageHome",
-  setup() {
+  setup: function () {
     const count = ref(0);
     const inc = () => {
       count.value++;
