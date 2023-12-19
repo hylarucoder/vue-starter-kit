@@ -1,12 +1,17 @@
-import { createApp } from "vue"
+import {createApp} from "vue"
+import {createPinia} from "pinia";
 import App from "./App"
-import store from "./store"
 import router from "./router"
-import Vant from "vant"
-import "vant/lib/index.css"
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/reset.css';
+
+
+const pinia = createPinia()
 
 const app = createApp(App)
-app.use(Vant)
 app.use(router)
-app.use(store)
+app.use(pinia)
+app.use(Antd)
+
+// app.use(store)
 app.mount("#app")

@@ -1,27 +1,23 @@
-import { createStore } from "vuex"
+import {defineStore} from "pinia";
+import {ref} from "vue";
 
-const state = {
-  count: 0,
-}
+export const useCounter = defineStore("counter", () => {
 
-const mutations = {
-  increment: (state) => {
-    state.count++
-    state.history.push("increment")
-  },
-  decrement: (state) => {
-    state.count--
-    state.history.push("decrement")
-  },
-}
+    const count = ref(0)
 
-const actions = {
-  async add(ctx) {},
-}
+    const increment = () => {
+        count.value++
+    }
 
-export default createStore({
-  state,
-  mutations,
-  actions,
-  modules: {},
+    const decrement = () => {
+        count.value--
+    }
+
+    return {
+        count,
+        increment,
+        decrement,
+    }
 })
+
+
